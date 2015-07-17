@@ -1,0 +1,26 @@
+<div>
+    <table class="table table-bordered table-striped table-condensed">
+        <thead>
+            <tr>
+                <th>Report ID</th>
+                <th>Bucket ID</th>
+                <th>Sent?</th>
+                <th>Defect</th>
+                <th>Email</th>
+                <th>User Comments</th>
+                <th>Bucket Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="report in reports">
+                <td>{{report.id}}</td>
+                <td>{{report.bid}}</td>
+                <td>{{report.sent}}</td>
+                <td>{{report.defect}}</td>
+                <td>{{report.email}}</td>
+                <td>{{report.comments}}</td>
+                <td>{{report.bnotes}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
