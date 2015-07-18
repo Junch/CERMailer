@@ -1,4 +1,7 @@
+<h2 align="center">Bucket</h2>
+
 <div>
+    <h2>Reports <span class="label label-default" ng-hide="checkedCount()==0">{{checkedCount()}}</span></h2>
     <table class="table table-bordered table-striped table-condensed">
         <thead>
             <tr>
@@ -24,8 +27,20 @@
                 <td>{{report.bnotes}}</td>
             </tr>
         </tbody>
-      <tfoot>
-        <td colspan="8">{{(reports | checked).length}} reports are selected</td>
-      </tfoot>
     </table>
+</div>
+
+<div>
+    <h2>Template</h2>
+    <select class="input-large form-control">
+      <option>Select a template</option>
+      <option value="GEN" selected="selected">General</option>
+      <option value="ACD">AutoCAD</option>
+      <option value="INV">Inventor</option>
+    </select>
+    
+    <br>
+    <div>
+        <button type="button" class="btn btn-default">Send</button>
+    </div>
 </div>

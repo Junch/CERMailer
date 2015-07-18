@@ -23,6 +23,14 @@ angular.module('myApp.reports', ['ngRoute'])
       item.select = $scope.allFlag;
     });
   };
+    
+  $scope.checkedCount = function(){
+    var checkedArr = $scope.reports.filter(function(item){
+        return item.select == true;
+    });
+
+    return checkedArr.length;
+  }    
 })
 
 .filter("checked", function(){

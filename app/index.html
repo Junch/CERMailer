@@ -6,21 +6,46 @@
   <meta name="description" content="">
   <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
   <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet">
+  <link href="components/combobox/bootstrap-combobox.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-size: 16px;
+      font-family: 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
 </head>
 <body>
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="#/view1">view1</a></li>
-            <li><a href="#/view2">view2</a></li>
-            <li><a href="#/reports">reports</a></li>
-          </ul>
-        </div>
-    </div>
-  </nav>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#/">CERMailer</a>
+      </div>
 
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+              <li><a href="#/view1">Products</a></li>
+              <li><a href="#/view2">Templates</a></li>
+              <li><a href="#/reports">Reports</a></li>
+        </ul>
+        <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Bucket">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+  </nav>
+  
   <div class="container">
     <div ng-view></div>
     <div>Angular seed app: v<span app-version></span></div>
@@ -38,5 +63,6 @@
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
+  <script src="components/combobox/bootstrap-combobox.js"></script>
 </body>
 </html>
