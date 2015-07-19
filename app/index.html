@@ -17,7 +17,7 @@
     }
   </style>
 </head>
-<body>
+<body ng-controller="AppCtrl">
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -34,13 +34,12 @@
         <ul class="nav navbar-nav">
               <li><a href="#/view1">Products</a></li>
               <li><a href="#/view2">Templates</a></li>
-              <li><a href="#/reports">Reports</a></li>
         </ul>
         <form class="navbar-form navbar-left" role="search">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Bucket">
+            <input type="text" class="form-control" placeholder="Bucket" ng-model="bucketid">
           </div>
-          <button type="submit" class="btn btn-default">Submit</button>
+          <button type="submit" class="btn btn-default" ng-click="search()">Submit</button>
         </form>
       </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
