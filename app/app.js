@@ -11,13 +11,4 @@ angular.module('myApp', [
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/view1'});
-}])
-
-.controller('AppCtrl', function($scope, $location) {
-  
-  $scope.search = function(){
-      $scope.cur_bucketid = $scope.bucketid;
-      $location.path("/reports");
-  }
-});
-
+}]);
