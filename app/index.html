@@ -6,7 +6,6 @@
   <meta name="description" content="">
   <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
   <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet">
-  <link href="components/combobox/bootstrap-combobox.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
@@ -17,7 +16,7 @@
     }
   </style>
 </head>
-<body>
+<body ng-controller="AppCtrl">
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -36,6 +35,18 @@
               <li><a href="#/view2">Templates</a></li>
               <li><a href="#/reports">Reports</a></li>
         </ul>
+        <form class="navbar-form navbar-left" role="search" name="searchBucket" ng-submit="searchbucket()">
+          <div class="form-group">
+            <input type="number" class="form-control" placeholder="bucket id" ng-model="bucketid" required>
+          </div>
+          <button type="submit" class="btn btn-default"  ng-disabled="searchBucket.$invalid">Submit</button>
+        </form>
+        <form class="navbar-form navbar-left" role="search" name="searchReport">
+          <div class="form-group">
+            <input type="number" class="form-control" placeholder="report id" ng-model="reportid" required>
+          </div>
+          <button type="submit" class="btn btn-default" ng-click="searchreport()" ng-disabled="searchReport.$invalid">Submit</button>
+        </form>
       </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
   </nav>
@@ -57,6 +68,5 @@
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
-  <script src="components/combobox/bootstrap-combobox.js"></script>
 </body>
 </html>

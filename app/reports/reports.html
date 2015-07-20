@@ -1,31 +1,16 @@
 <style>
   /* http://stackoverflow.com/questions/20853066/how-to-center-form-in-bootstrap-3 */
-  .center_form{
-      margin: 0 auto;
-      width:45% /* value of your choice which suits your alignment */
-  }
-
   .center_btn{
       margin: 0 auto;
       width:15% /* value of your choice which suits your alignment */
   }   
 </style>
 
-<div class="center_form">
-  <form class="navbar-form navbar-left center" role="search" name="searchForm">
-    <div class="form-group">
-      <input type="number" class="form-control" placeholder="bucket id" ng-model="bucketid" required>
-    </div>
-    <button type="submit" class="btn btn-default" ng-click="search()" ng-disabled="searchForm.$invalid">Submit</button>
-  </form>
-</div>
-
-<br>
-<br>
-
 <div>
-    <h2>Reports <span class="label label-default" ng-hide="checkedCount()==0">{{checkedCount()}}</span></h2>
-    <table class="table table-bordered table-striped table-condensed">
+    <legend>
+      <h2>Reports <span class="label label-default" ng-hide="checkedCount()==0">{{checkedCount()}}</span></h2>
+    </legend>
+    <table class="table table-striped table-condensed">
         <thead>
             <tr>
                 <td><input type="checkbox" ng-model="allFlag" ng-change="toggleAll()" /></td>
@@ -54,16 +39,17 @@
 </div>
 
 <div>
-  <h2>Template</h2>
-  <select class="input-large form-control">
-    <option>Select a template</option>
+  <legend>
+    <h2>Email Template</h2>
+  </legend>
+  <select class="form-control">
+    <option>Select Email Template</option>
     <option value="GEN" selected="selected">General</option>
     <option value="ACD">AutoCAD</option>
     <option value="INV">Inventor</option>
   </select>
-
   <br>
   <div class="center_btn">
-    <button type="button" class="btn btn-default">Send Emails</button>
+    <button type="button" class="btn btn-large btn-primary">Send Emails</button>
   </div>
 </div>
