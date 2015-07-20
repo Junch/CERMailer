@@ -13,18 +13,36 @@ angular.module('myApp', [
   $routeProvider.otherwise({redirectTo: '/view1'});
 }])
 
-.controller('AppCtrl', function($scope, $location) {
+.controller('AppCtrl', function($scope, $location, $http) {
+  
+  $scope.reports=[];
   
   $scope.searchbucket = function(){
-      $scope.cur_bucketid = $scope.bucketid;
-      $scope.bucketid = null;
-      $location.path("/reports");
+      $scope.reports = [];
+
+      $http.get("/bucket/" + $scope.bucketid)
+        .success(function(data){
+          $scope.reports = data;
+          $location.path("/reports");
+        }).error(function(error){
+          $scope.reports.error = error;
+        }).finally(function(){
+          $scope.bucketid = null;
+      });
   }
   
   $scope.searchreport = function(){
-      $scope.cur_reportid = $scope.reportid;
-      $scope.reportid = null;
-      $location.path("/reports");
+      $scope.reports = [];
+
+      $http.get("/report/" + $scope.reportid)
+        .success(function(data){
+          $scope.reports = data;
+          $location.path("/reports");
+        }).error(function(error){
+          $scope.reports.error = error;
+        }).finally(function(){
+          $scope.reportid = null;
+      });
   }
 });
 
