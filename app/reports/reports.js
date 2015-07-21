@@ -9,7 +9,7 @@ angular.module('myApp.reports', ['ngRoute'])
   });
 }])
 
-.controller('ReportsCtrl', function($scope) {
+.controller('ReportsCtrl', function($scope, $http) {
   $scope.allFlag = false;
 
   $scope.toggleAll = function(){
@@ -27,12 +27,15 @@ angular.module('myApp.reports', ['ngRoute'])
   };
   
   $scope.selected = '';
-  $scope.templates = [
-    {id: 1, name: 'General'},
-    {id: 2, name: 'AutoCAD'},
-    {id: 3, name: 'Inventor'},
-    {id: 4, name: 'Bug 4'}, 
-  ];
+  $scope.templates = [];
+  
+  $http.get("/templates")
+    .success(function(data){
+      $scope.templates = data;
+    })
+    .error(function(error){
+      $scope.templates.error = error;
+    });
 })
 
 .filter("checked", function(){

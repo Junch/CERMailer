@@ -21,13 +21,19 @@ var reports = [
     {id:5, bid:2, sent:false, defect:47989, email: 's@libero.it', comments: 'efgh', bnotes: '1234', select: false },
     {id:6, bid:3, sent:false, defect:47989, email: 's@mikami.co', comments: 'ijkl', bnotes: '1234', select: false }];
 
+var templates = [
+    {id: 1, name: 'General'},
+    {id: 2, name: 'AutoCAD'},
+    {id: 3, name: 'Inventor'},
+    {id: 4, name: 'Bug 4'}];
+
 app.use(express.static(__dirname + "/../app"));
 app.get("/bucket/:id", function(req, res){
     var idStr = req.params.id;
     console.log('Retrieving bucket: ' + idStr);
       
     var result = reports.filter(function(item){
-      return item.bid == parseInt(idStr);
+        return item.bid == parseInt(idStr);
     });
     
     res.json(result);
@@ -37,10 +43,15 @@ app.get("/report/:id", function(req, res){
     console.log('Retrieving report: ' + idStr);
       
     var result = reports.filter(function(item){
-      return item.id == parseInt(idStr);
+        return item.id == parseInt(idStr);
     });
     
     res.json(result);
+});
+app.get("/templates", function(req, res){
+    console.log('Retrieving templates:');
+    
+    res.json(templates);
 });
 
 var server = app.listen(8000, function() {
