@@ -42,11 +42,8 @@
   <legend>
     <h2>Email Template</h2>
   </legend>
-  <select class="form-control">
-    <option>Select Email Template</option>
-    <option value="GEN" selected="selected">General</option>
-    <option value="ACD">AutoCAD</option>
-    <option value="INV">Inventor</option>
+  <select class="form-control" ng-model="selected" ng-options="t.name for t in templates">
+    <option value="">--Pick One--</option>
   </select>
   <br>
   <div class="center_btn">

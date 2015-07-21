@@ -42,11 +42,11 @@
           </div>
           <button type="submit" class="btn btn-default"  ng-disabled="searchBucket.$invalid">Submit</button>
         </form>
-        <form class="navbar-form navbar-left" role="search" name="searchReport">
+        <form class="navbar-form navbar-left" role="search" name="searchReport" ng-submit="searchreport()">
           <div class="form-group">
             <input type="number" class="form-control" placeholder="report id" ng-model="reportid" required>
           </div>
-          <button type="submit" class="btn btn-default" ng-click="searchreport()" ng-disabled="searchReport.$invalid">Submit</button>
+          <button type="submit" class="btn btn-default" ng-disabled="searchReport.$invalid">Submit</button>
         </form>
       </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

@@ -24,7 +24,15 @@ angular.module('myApp.reports', ['ngRoute'])
     });
 
     return checkedArr.length;
-  }    
+  };
+  
+  $scope.selected = '';
+  $scope.templates = [
+    {id: 1, name: 'General'},
+    {id: 2, name: 'AutoCAD'},
+    {id: 3, name: 'Inventor'},
+    {id: 4, name: 'Bug 4'}, 
+  ];
 })
 
 .filter("checked", function(){
