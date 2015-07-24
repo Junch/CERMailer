@@ -54,7 +54,8 @@ app.get("/templates", function(req, res){
     res.json(templates);
 });
 
-var server = app.listen(8000, function() {
-    var port = server.address().port;
+var port = process.env.PORT || 8000;
+var server = app.listen(port, function() {
+    port = server.address().port;
     console.log('Listening on port %s', port);
 });
