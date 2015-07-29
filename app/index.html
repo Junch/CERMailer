@@ -18,7 +18,7 @@
   </style>
 </head>
 <body ng-controller="AppCtrl">
-  <nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-inverse" bs-navbar>
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -32,9 +32,9 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-              <li><a href="#/view1">Products</a></li>
-              <li><a href="#/view2">Templates</a></li>
-              <li><a href="#/reports">Reports</a></li>
+              <li data-match-route="/view1"><a href="#/view1">Products</a></li>
+              <li data-match-route="/view2"><a href="#/view2">Templates</a></li>
+              <li data-match-route="/reports"><a href="#/reports">Reports</a></li>
         </ul>
         <form class="navbar-form navbar-left" role="search" name="searchBucket" ng-submit="searchbucket()">
           <div class="form-group">
@@ -62,6 +62,8 @@
   -->
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-strap/dist/angular-strap.js"></script>
+  <script src="bower_components/angular-strap/dist/angular-strap.tpl.js"></script>
   <script src="app.js"></script>
   <script src="view1/view1.js"></script>
   <script src="view2/view2.js"></script>
