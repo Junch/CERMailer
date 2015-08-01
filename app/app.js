@@ -5,7 +5,7 @@ angular.module('myApp', [
   'ngRoute',
   'mgcrea.ngStrap',
   'myApp.view1',
-  'myApp.view2',
+  'myApp.templates',
   'myApp.reports',
   'myApp.version'
 ])
