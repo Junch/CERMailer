@@ -21,7 +21,7 @@ var reports = [
     {id:5, bid:2, sent:false, defect:47989, email: 's@libero.it', comments: 'efgh', bnotes: '1234', select: false },
     {id:6, bid:3, sent:false, defect:47989, email: 's@mikami.co', comments: 'ijkl', bnotes: '1234', select: false }];
 
-var templates = [
+var templateNames = [
     {id: 1, name: 'General'},
     {id: 2, name: 'AutoCAD'},
     {id: 3, name: 'Inventor'},
@@ -48,10 +48,10 @@ app.get("/report/:id", function(req, res){
     
     res.json(result);
 });
-app.get("/templates", function(req, res){
-    console.log('Retrieving templates:');
+app.get("/templateNames", function(req, res){
+    console.log('Retrieving email template names:');
     
-    res.json(templates);
+    res.json(templateNames);
 });
 
 var port = process.env.PORT || 8000;

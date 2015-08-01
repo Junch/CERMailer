@@ -29,7 +29,8 @@ angular.module('myApp.reports', ['ngRoute'])
   $scope.selected = '';
   $scope.templates = [];
   
-  $http.get("/templates")
+  // http://stackoverflow.com/questions/14117653/how-to-cache-an-http-get-service-in-angularjs
+  $http.get("/templateNames", { cache: true})
     .success(function(data){
       $scope.templates = data;
     })
