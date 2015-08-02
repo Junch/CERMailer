@@ -10,16 +10,15 @@ angular.module('myApp.reports', ['ngRoute'])
 }])
 
 .controller('ReportsCtrl', function($scope, $http) {
-  $scope.allFlag = false;
 
   $scope.toggleAll = function(){
-    $scope.reports.forEach(function(item){
-      item.select = $scope.allFlag;
+    $scope.data.reports.forEach(function(item){
+      item.select = $scope.data.allFlag;
     });
   };
     
   $scope.checkedCount = function(){
-    var checkedArr = $scope.reports.filter(function(item){
+    var checkedArr = $scope.data.reports.filter(function(item){
         return item.select == true;
     });
 
