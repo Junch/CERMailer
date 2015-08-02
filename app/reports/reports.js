@@ -25,17 +25,16 @@ angular.module('myApp.reports', ['ngRoute'])
     return checkedArr.length;
   };
   
-  $scope.selected = '';
-  $scope.templates = [];
-  
-  // http://stackoverflow.com/questions/14117653/how-to-cache-an-http-get-service-in-angularjs
-  $http.get("/templateNames", { cache: true})
+  // http://stackoverflow.com/questions/14117653/how-to-cache-an-http-get-service-in-angularjs    
+  if ($scope.data.templates == null){
+    $http.get("/templateNames", { cache: true})
     .success(function(data){
-      $scope.templates = data;
+      $scope.data.templates = data;
     })
     .error(function(error){
-      $scope.templates.error = error;
+      $scope.data.templates.error = error;
     });
+  }  
 })
 
 .filter("checked", function(){

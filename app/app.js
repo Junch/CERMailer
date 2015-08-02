@@ -16,17 +16,15 @@ angular.module('myApp', [
 
 .controller('AppCtrl', function($scope, $location, $http) {
   
-  $scope.data = {};
+  $scope.data = {selected: ""};
   init();
   
   function init(){
       // http://stackoverflow.com/questions/14577822/ngmodel-doent-pass-data-back-to-parent-scope-in-directive
-      $scope.data = {
-        reports: [],
-        allFlag: false
-      };
+      $scope.data.reports = [];
+      $scope.data.allFlag = false;
   }
-  
+    
   $scope.searchbucket = function(){
       init();
 
