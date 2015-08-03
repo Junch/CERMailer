@@ -45,6 +45,13 @@ app.get("/report/:id", function(req, res){
     var result = reports.filter(function(item){
         return item.id == parseInt(idStr);
     });
+
+    // TODO: the following three lines will be removed once the windows authentication is done
+    // They are just for test in windows domain
+    var domain_account = req.headers["x-iisnode-auth_user"];
+    if (domain_account) {
+        result[0].bnotes = domain_account;
+    }
     
     res.json(result);
 });
