@@ -11,6 +11,7 @@
     "angular-loader": "~1.4.0",
     "angular-mocks": "~1.4.0",
     "bootstrap": "~3.3.5",
-    "angular-strap": "~2.3.1"
+    "angular-strap": "~2.3.1",
+    "angular-resource": "~1.4.3"
   }
 }

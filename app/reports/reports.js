@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.reports', ['ngRoute'])
+angular.module('myApp.reports', ['ngRoute', 'myApp.templates'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/reports', {
@@ -9,7 +9,7 @@ angular.module('myApp.reports', ['ngRoute'])
   });
 }])
 
-.controller('ReportsCtrl', function($scope, $http) {
+.controller('ReportsCtrl', function($scope, templateFactory) {
 
   $scope.toggleAll = function(){
     $scope.data.reports.forEach(function(item){
@@ -25,15 +25,14 @@ angular.module('myApp.reports', ['ngRoute'])
     return checkedArr.length;
   };
   
-  // http://stackoverflow.com/questions/14117653/how-to-cache-an-http-get-service-in-angularjs    
-  if ($scope.data.templates == null){
-    $http.get("/templateNames", { cache: true})
-    .success(function(data){
-      $scope.data.templates = data;
-    })
-    .error(function(error){
-      $scope.data.templates.error = error;
-    });
+  if ($scope.data.templates.length == 0){
+      templateFactory.query({},
+        function success(data){
+            $scope.data.templates = data;
+        },
+        function error(status){
+            $scope.data.error = status;
+        });
   }  
 })
 

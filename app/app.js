@@ -17,6 +17,7 @@ angular.module('myApp', [
 .controller('AppCtrl', function($scope, $location, $http) {
   
   $scope.data = {selected: ""};
+  $scope.data.templates = [];
   init();
   
   function init(){

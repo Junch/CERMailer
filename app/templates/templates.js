@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.templates', ['ngRoute'])
+angular.module('myApp.templates', ['ngRoute', 'ngResource'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/templates', {
@@ -9,27 +9,20 @@ angular.module('myApp.templates', ['ngRoute'])
   });
 }])
 
-.controller('TemplatesCtrl', function($scope){
-  $scope.data.templates = [
-      {  id: 1,
-         name: "General",
-         author: "Jun Chen",
-         note: "A template for all products",
-         email: "jun.chen@autodesk.com"
-      },
-      {  id: 2,
-         name: "AutoCAD",
-         author: "Tom Cat",
-         note: "A template for AutoCAD",
-         email: "tom.cat@autodesk.com"
-      },
-      {  id: 3,
-         name: "Bug 64",
-         author: "Jun Chen",
-         note: "A template specified for the TFS bug 64",
-         email: "jun.chen@autodesk.com"
-      }
-    ];
+.controller('TemplatesCtrl', function($scope, templateFactory){
+  var init = function() {
+      if ($scope.data.templates.length == 0){
+          templateFactory.query({},
+            function success(data){
+                $scope.data.templates = data;
+            },
+            function error(errorResponse){
+                $scope.data.error = status;
+            });   
+      }   
+  };
+
+  init();
   
   $scope.delete = function(id){
     $scope.data.templates.forEach(function(item){
@@ -39,5 +32,6 @@ angular.module('myApp.templates', ['ngRoute'])
       }
     });
   }
-  
 });
+
+

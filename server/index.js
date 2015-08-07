@@ -22,10 +22,24 @@ var reports = [
     {id:6, bid:3, sent:false, defect:47989, email: 's@mikami.co', comments: 'ijkl', bnotes: '1234', select: false }];
 
 var templateNames = [
-    {id: 1, name: 'General'},
-    {id: 2, name: 'AutoCAD'},
-    {id: 3, name: 'Inventor'},
-    {id: 4, name: 'Bug 4'}];
+    {  id: 1,
+       name: "General",
+       author: "Jun Chen",
+       note: "A template for all products",
+       email: "jun.chen@autodesk.com"
+    },
+    {  id: 2,
+       name: "AutoCAD",
+       author: "Tom Cat",
+       note: "A template for AutoCAD",
+       email: "tom.cat@autodesk.com"
+    },
+    {  id: 3,
+       name: "Bug 64",
+       author: "Jun Chen",
+       note: "A template specified for the TFS bug 64",
+       email: "jun.chen@autodesk.com"
+    }];
 
 app.use(express.static(__dirname + "/../app"));
 app.get("/bucket/:id", function(req, res){
