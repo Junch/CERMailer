@@ -1,5 +1,27 @@
-<p>This is the partial for email templates page.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<h2 class="pull-left">Email Templates</h2>
+<a ng-href="#/create" class="btn btn-primary pull-right" href="#/create">Add new template</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" class="first">Name</th>
+      <th scope="col">Author</th>
+      <th scope="col">Note</th>
+      <th scope="col">Actions</th>
+    </tr>  
+  </thead>
+  <tbody>
+    <tr ng-repeat="tmpl in data.templates">
+      <td>{{tmpl.name}}</td>
+      <td><a href="mailto:{{tmpl.email}}">{{tmpl.author}}</a></td>
+      <td>{{tmpl.note}}</td>
+      <td>
+        <a href="#/templates/{{tmpl.id}}" class="edit-btn">
+          <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        </a>
+        <a ng-click="delete(tmpl.id)" class="edit-btn">              
+          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>

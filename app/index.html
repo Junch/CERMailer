@@ -7,15 +7,8 @@
   <link rel="icon" href="favicon.ico" mce_href="favicon.ico" type="image/x-icon">
   <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
   <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet" >
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      font-size: 16px;
-      font-family: 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-    }
-  </style>
 </head>
 <body ng-controller="AppCtrl">
   <nav class="navbar navbar-inverse" bs-navbar>
@@ -54,7 +47,10 @@
   
   <div class="container">
     <div ng-view></div>
-    <div>Angular seed app: v<span app-version></span></div>
+    
+    <footer class="footer">
+      <p>Copyright © Simply Accessible Inc. All Rights Reserved.  Angular seed app: v<span app-version></span></p>    
+    </footer>
   </div>
 
   <!-- In production use:
