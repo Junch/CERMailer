@@ -16,3 +16,11 @@
   clear: both;
   padding: 1.5em 0em;
 }
+
+.glyphicon-edit {
+  margin-left: 4px;
+}
+
+.glyphicon-trash {
+  margin-left: 12px;
+}
