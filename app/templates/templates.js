@@ -34,6 +34,11 @@ angular.module('myApp.templates', ['ngRoute', 'ngResource'])
   init();
   
   $scope.delete = function(id){
+    var r = confirm("Do you want to delete the template?");
+    if (r == false) {
+        return;
+    }
+        
     for (var i=0; i<$scope.data.templates.length; ++i){
       if ($scope.data.templates[i].id == id){
         templateFactory.delete({id: id}, 
