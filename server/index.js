@@ -26,19 +26,22 @@ var templateNames = [
        name: "General",
        author: "Jun Chen",
        note: "A template for all products",
-       email: "jun.chen@autodesk.com"
+       email: "jun.chen@autodesk.com",
+       content: "###Title\n##Section\nIt is a general template"
     },
     {  id: 2,
        name: "AutoCAD",
        author: "Tom Cat",
        note: "A template for AutoCAD",
-       email: "tom.cat@autodesk.com"
+       email: "tom.cat@autodesk.com",
+       content: "###Title\n##Section\nIt is a AutoCAD template"
     },
     {  id: 3,
        name: "Bug 64",
        author: "Jun Chen",
        note: "A template specified for the TFS bug 64",
-       email: "jun.chen@autodesk.com"
+       email: "jun.chen@autodesk.com",
+       content: "###Title\n##Section\nIt is a template for Bug 64"
     }];
 
 app.use(express.static(__dirname + "/../app"));
@@ -73,6 +76,40 @@ app.get("/templateNames", function(req, res){
     console.log('Retrieving email template names:');
     
     res.json(templateNames);
+});
+app.get("/templateNames/:id", function(req, res){
+    var id = req.params.id;
+    console.log('Retrieving template: ' + id);
+  
+    templateNames.forEach(function(item){
+      if (item.id == id) {
+        return res.json(item);
+      }
+    });
+});
+app.post("/templateNames", function(req, res){
+    var tmpl = req.body;
+    console.log('Adding template: ' + JSON.stringify(tmpl));
+  
+    tmpl.author = 'todo';
+    tmpl.email = 'todo';
+    tmpl.id = templateNames.length + 1;
+    
+    templateNames.push(tmpl);
+    res.send(tmpl);
+});
+app.post("/templateNames/:id", function(req, res){
+    var id = req.params.id;  
+    var tmpl = req.body;
+    console.log('Updating template: ' + JSON.stringify(tmpl));
+  
+    for (var i=0; i<templateNames.length; ++i){
+      if (templateNames[i].id == id){
+        templateNames[i] = tmpl;
+      }  
+    }
+
+    res.send(tmpl);
 });
 
 var port = process.env.PORT || 8000;
