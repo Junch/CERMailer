@@ -1,0 +1,24 @@
+<section id="page-sub-header">
+  <h2 class="pull-left">Add Template</h2>
+  <a class="btn btn-primary pull-right" href="#/templates">Return</a>
+</section>
+
+<section id="app-notice">
+  <form name="templateForm" novalidate>
+    <div class="form-group">
+        <label for="name" class="control-label">Name:</label>
+        <input id="name" name="name" type="text" class="form-control" ng-model="data.template.name">
+    </div>
+    <div class="form-group">
+        <label for="note" class="control-label">Note:</label>
+        <input id="note" name="note" type="text" class="form-control" ng-model="data.template.note">
+    </div>
+    <div class="form-group">
+        <label for="content" class="control-label">Content:</label>
+        <input id="content" name="content" type="text" class="form-control" ng-model="data.template.content">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary" ng-click="save(data.template)">Save</button>
+    </div>
+  </form>
+</section>

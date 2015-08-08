@@ -1,37 +1,36 @@
-<div>
-    <h2 class="pull-left">Reports <span class="label label-default" ng-hide="checkedCount()==0">{{checkedCount()}}</span></h2>
-    <a ng-href="#/create" class="btn btn-primary pull-right" href="#/create">Send emails</a>
-    <table class="table table-striped table-condensed">
-        <thead>
-            <tr>
-                <td><input type="checkbox" ng-model="data.allFlag" ng-change="toggleAll()" /></td>
-                <th>Report ID</th>
-                <th>Bucket ID</th>
-                <th>Sent?</th>
-                <th>Defect</th>
-                <th>Email</th>
-                <th>User Comments</th>
-                <th>Bucket Notes</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="report in data.reports">
-                <td><input type="checkbox" ng-model="report.select" /></td>
-                <td>{{report.id}}</td>
-                <td>{{report.bid}}</td>
-                <td>{{report.sent}}</td>
-                <td>{{report.defect}}</td>
-                <td>{{report.email}}</td>
-                <td>{{report.comments}}</td>
-                <td>{{report.bnotes}}</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+<section id="page-sub-header">
+  <h2 class="pull-left">Reports <span class="label label-default" ng-hide="checkedCount()==0">{{checkedCount()}}</span></h2>
+  <a ng-href="#/create" class="btn btn-primary pull-right" href="#/create">Send emails</a>
+</section>
 
-<div>
-  <h2 class="pull-left">Email Template</h2>
-  <select class="form-control" ng-model="data.selected" ng-options="t.name for t in data.templates">
-    <option value="">--Pick One--</option>
-  </select>
-</div>
+<table class="table table-striped table-condensed">
+    <thead>
+        <tr>
+            <td><input type="checkbox" ng-model="data.allFlag" ng-change="toggleAll()" /></td>
+            <th>Report ID</th>
+            <th>Bucket ID</th>
+            <th>Sent?</th>
+            <th>Defect</th>
+            <th>Email</th>
+            <th>User Comments</th>
+            <th>Bucket Notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="report in data.reports">
+            <td><input type="checkbox" ng-model="report.select" /></td>
+            <td>{{report.id}}</td>
+            <td>{{report.bid}}</td>
+            <td>{{report.sent}}</td>
+            <td>{{report.defect}}</td>
+            <td>{{report.email}}</td>
+            <td>{{report.comments}}</td>
+            <td>{{report.bnotes}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 class="pull-left">Email Template</h2>
+<select class="form-control" ng-model="data.selected" ng-options="t.name for t in data.templates">
+  <option value="">--Pick One--</option>
+</select>

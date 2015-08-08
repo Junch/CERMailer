@@ -1,10 +1,18 @@
-h2{
-    margin-top: 0px;
-}
 
 /* Custom page footer */
 .footer {
     padding-top: 19px;
     color: #747474 ;
     border-top: 1px solid #e5e5e5;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#page-sub-header h2{
+    margin-top: 0px;
+}
+
+#app-notice {
+  clear: both;
+  padding: 1.5em 0em;
 }

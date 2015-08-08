@@ -3,10 +3,15 @@
 angular.module('myApp.templates', ['ngRoute', 'ngResource'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/templates', {
-    templateUrl: 'templates/templates.html',
-    controller: 'TemplatesCtrl'
-  });
+  $routeProvider.
+    when('/templates', {
+      templateUrl: 'templates/templates.html',
+      controller: 'TemplatesCtrl'
+    }).
+    when('/templates/add', {
+      templateUrl: 'templates/template.html',
+      controller: 'TemplatesCtrl'
+    });
 }])
 
 .controller('TemplatesCtrl', function($scope, templateFactory){
