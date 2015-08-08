@@ -111,6 +111,19 @@ app.post("/templateNames/:id", function(req, res){
 
     res.send(tmpl);
 });
+app.delete("/templateNames/:id", function(req, res){
+    var id = req.params.id;
+    console.log('Deleting template: ' + id);
+  
+    for (var i=0; i<templateNames.length; ++i){
+      if (templateNames[i].id == id){
+        templateNames.splice(i, 1);
+        return res.send(id);
+      }  
+    }
+  
+    res.send({'error': id + ' is not found'});
+});
 
 var port = process.env.PORT || 8000;
 var server = app.listen(port, function() {

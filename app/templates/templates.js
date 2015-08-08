@@ -28,18 +28,25 @@ angular.module('myApp.templates', ['ngRoute', 'ngResource'])
             function error(status){
                 $scope.data.error = status;
             });   
-      }   
+      }
   };
 
   init();
   
   $scope.delete = function(id){
-    $scope.data.templates.forEach(function(item){
-      if (item.id == id){
-        alert("Are you sure to delete the template: " + item.name);
+    for (var i=0; i<$scope.data.templates.length; ++i){
+      if ($scope.data.templates[i].id == id){
+        templateFactory.delete({id: id}, 
+          function success(data){
+            $scope.data.templates.splice(i, 1);
+          },
+          function error(status){
+            $scope.data.error = status;
+          });
+        
         return;
-      }
-    });
+      } 
+    }
   }
 })
 
@@ -47,6 +54,8 @@ angular.module('myApp.templates', ['ngRoute', 'ngResource'])
     var tId = $routeParams.id;
   
     if (tId != null) {
+      $scope.title = "Edit Template";
+      
       templateFactory.get({id: tId},
         function success(data){
           $scope.data.template = data;
@@ -56,6 +65,7 @@ angular.module('myApp.templates', ['ngRoute', 'ngResource'])
         });
     }
     else{
+      $scope.title = "Add New Template";
       $scope.data.template = null;
     }
   

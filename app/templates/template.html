@@ -1,5 +1,5 @@
 <section id="page-sub-header">
-  <h2 class="pull-left">Add Template</h2>
+  <h2 class="pull-left">{{title}}</h2>
   <a class="btn btn-primary pull-right" href="#/templates">Return</a>
 </section>
 
@@ -18,6 +18,7 @@
         <input id="content" name="content" type="text" class="form-control" ng-model="data.template.content">
     </div>
     <div class="form-group">
+        <a class="btn btn-primary" href="#/templates">Cancel</a>
         <button type="submit" class="btn btn-primary" ng-click="save(data.template)">Save</button>
     </div>
   </form>
