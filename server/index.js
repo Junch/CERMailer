@@ -27,21 +27,21 @@ var templateNames = [
        author: "Jun Chen",
        note: "A template for all products",
        email: "jun.chen@autodesk.com",
-       content: "###Title\n##Section\nIt is a general template"
+       content: "# Title\n## Section\nIt is a **general** template"
     },
     {  id: 2,
        name: "AutoCAD",
        author: "Tom Cat",
        note: "A template for AutoCAD",
        email: "tom.cat@autodesk.com",
-       content: "###Title\n##Section\nIt is a AutoCAD template"
+       content: "# Title\n## Section\nIt is a **AutoCAD** template"
     },
     {  id: 3,
        name: "Bug 64",
        author: "Jun Chen",
        note: "A template specified for the TFS bug 64",
        email: "jun.chen@autodesk.com",
-       content: "###Title\n##Section\nIt is a template for Bug 64"
+       content: "# Title\n## Section\nIt is a template for **Bug 64**"
     }];
 
 app.use(express.static(__dirname + "/../app"));

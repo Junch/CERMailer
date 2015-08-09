@@ -1,25 +1,28 @@
 <section id="page-sub-header">
   <h2 class="pull-left">{{title}}</h2>
-  <a class="btn btn-primary pull-right" href="#/templates">Return</a>
+  <div class="pull-right">
+      <a class="btn btn-primary" href="#/templates">Cancel</a>
+      <button type="submit" class="btn btn-primary" ng-click="save(data.template)">Save</button>
+  </div>
 </section>
 
 <section id="app-notice">
   <form name="templateForm" novalidate>
     <div class="form-group">
-        <label for="name" class="control-label">Name:</label>
+        <label for="name">Name:</label>
         <input id="name" name="name" type="text" class="form-control" ng-model="data.template.name">
     </div>
     <div class="form-group">
-        <label for="note" class="control-label">Note:</label>
+        <label for="note">Note:</label>
         <input id="note" name="note" type="text" class="form-control" ng-model="data.template.note">
     </div>
     <div class="form-group">
-        <label for="content" class="control-label">Content:</label>
+        <label for="content">Content:</label>
         <textarea id="content" name="content" class="form-control" rows="5" ng-model="data.template.content" required></textarea>
     </div>
     <div class="form-group">
-        <a class="btn btn-primary" href="#/templates">Cancel</a>
-        <button type="submit" class="btn btn-primary" ng-click="save(data.template)">Save</button>
+        <label for="content">Content preview:</label>
+        <div id="preview" class="well"></div>
     </div>
   </form>
 </section>

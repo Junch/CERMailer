@@ -64,6 +64,9 @@ angular.module('myApp.templates', ['ngRoute', 'ngResource'])
       templateFactory.get({id: tId},
         function success(data){
           $scope.data.template = data;
+        
+          document.getElementById('preview').innerHTML =
+            marked($scope.data.template.content);        
         },
         function error(status){
           $scope.data.error = status;
