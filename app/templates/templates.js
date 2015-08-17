@@ -64,9 +64,7 @@ angular.module('myApp.templates', ['ngRoute', 'ngResource'])
       templateFactory.get({id: tId},
         function success(data){
           $scope.data.template = data;
-        
-          document.getElementById('preview').innerHTML =
-            marked($scope.data.template.content);        
+           
         },
         function error(status){
           $scope.data.error = status;
@@ -76,6 +74,11 @@ angular.module('myApp.templates', ['ngRoute', 'ngResource'])
       $scope.title = "Add New Template";
       $scope.data.template = null;
     }
+    
+    $scope.$watch('data.template.content', function(){
+        document.getElementById('preview').innerHTML =
+            marked($scope.data.template.content); 
+    });
   
     $scope.save = function(){
       var id = $scope.data.template.id;
