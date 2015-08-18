@@ -2,7 +2,7 @@
 
 angular.module('myApp.templates', ['ngRoute', 'ngResource'])
 
-.config(['$routeProvider', function($routeProvider) {
+.config(['$routeProvider', function ($routeProvider) {
   $routeProvider.
     when('/templates', {
       templateUrl: 'templates/templates.html',
@@ -18,87 +18,86 @@ angular.module('myApp.templates', ['ngRoute', 'ngResource'])
     });
 }])
 
-.controller('TemplatesCtrl', function($scope, templateFactory){  
-  var init = function() {
-      if ($scope.data.templates.length == 0){
-          templateFactory.query({},
-            function success(data){
-                $scope.data.templates = data;
+.controller('TemplatesCtrl', function ($scope, templateFactory) {
+  var init = function () {
+    if ($scope.data.templates.length == 0){
+      templateFactory.query({},
+            function success(data) {
+              $scope.data.templates = data;
             },
-            function error(status){
-                $scope.data.error = status;
-            });   
-      }
+            function error(status) {
+              $scope.data.error = status;
+            });
+    }
   };
 
   init();
-  
-  $scope.delete = function(id){
-    var r = confirm("Do you want to delete the template?");
+
+  $scope.delete = function (id) {
+    var r = confirm('Do you want to delete the template?');
     if (r == false) {
-        return;
+      return;
     }
-        
-    for (var i=0; i<$scope.data.templates.length; ++i){
+
+    for (var i = 0; i < $scope.data.templates.length; ++i){
       if ($scope.data.templates[i].id == id){
-        templateFactory.delete({id: id}, 
-          function success(data){
+        templateFactory.delete({id: id},
+          function success(data) {
             $scope.data.templates.splice(i, 1);
           },
-          function error(status){
+          function error(status) {
             $scope.data.error = status;
           });
-        
+
         return;
-      } 
+      }
     }
-  }
+  };
 })
 
-.controller('TemplateCtrl', function($scope, $routeParams, $location, templateFactory){
-    var tId = $routeParams.id;
-  
-    if (tId != null) {
-      $scope.title = "Edit Template";
-      
-      templateFactory.get({id: tId},
-        function success(data){
+.controller('TemplateCtrl', function ($scope, $routeParams, $location, templateFactory) {
+  var tId = $routeParams.id;
+
+  if (tId != null) {
+    $scope.title = 'Edit Template';
+
+    templateFactory.get({id: tId},
+        function success(data) {
           $scope.data.template = data;
-           
+
         },
-        function error(status){
+        function error(status) {
           $scope.data.error = status;
         });
-    }
-    else{
-      $scope.title = "Add New Template";
-      $scope.data.template = null;
-    }
-    
-    $scope.$watch('data.template.content', function(){
-        document.getElementById('preview').innerHTML =
-            marked($scope.data.template.content); 
-    });
-  
-    $scope.save = function(){
-      var id = $scope.data.template.id;
-      
-      templateFactory.save($scope.data.template,
-        function success(data){
+  }  else {
+    $scope.title = 'Add New Template';
+    $scope.data.template = null;
+  }
+
+  $scope.$watch('data.template.content', function () {
+    document.getElementById('preview').innerHTML =
+        marked($scope.data.template.content);
+  });
+
+  $scope.save = function () {
+    var id = $scope.data.template.id;
+
+    templateFactory.save($scope.data.template,
+        function success(data) {
           if (id == null) {
             $scope.data.templates.push(data);
-          }else{
-            for(var i=0; i<$scope.data.templates.length; ++i){
+          }else {
+            for (var i = 0; i < $scope.data.templates.length; ++i){
               if ($scope.data.templates[i].id == id){
                 $scope.data.templates[i] = data;
               }
             }
           }
-        
-          $location.path("/templates");
+
+          $location.path('/templates');
         },
-        function error(status){                 
+        function error(status) {
           $scope.data.error = status;
-      });
-    }
+        });
+  };
 });

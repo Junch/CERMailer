@@ -10,48 +10,48 @@ angular.module('myApp', [
   'myApp.version'
 ])
 
-.config(['$routeProvider', function($routeProvider) {
+.config(['$routeProvider', function ($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/view1'});
 }])
 
-.controller('AppCtrl', function($scope, $location, $http) {
-  
-  $scope.data = {selected: ""};
+.controller('AppCtrl', function ($scope, $location, $http) {
+
+  $scope.data = {selected: ''};
   $scope.data.templates = [];
   init();
-  
-  function init(){
-      // http://stackoverflow.com/questions/14577822/ngmodel-doent-pass-data-back-to-parent-scope-in-directive
-      $scope.data.reports = [];
-      $scope.data.allFlag = false;
-  }
-    
-  $scope.searchbucket = function(){
-      init();
 
-      $http.get("/bucket/" + $scope.bucketid)
-        .success(function(data){
+  function init() {
+    // http://stackoverflow.com/questions/14577822/ngmodel-doent-pass-data-back-to-parent-scope-in-directive
+    $scope.data.reports = [];
+    $scope.data.allFlag = false;
+  }
+
+  $scope.searchbucket = function () {
+    init();
+
+    $http.get('/bucket/' + $scope.bucketid)
+        .success(function (data) {
           $scope.data.reports = data;
-          $location.path("/reports");
-        }).error(function(error){
+          $location.path('/reports');
+        }).error(function (error) {
           $scope.data.reports.error = error;
-        }).finally(function(){
+        }).finally(function () {
           $scope.bucketid = null;
-      });
-  }
-  
-  $scope.searchreport = function(){
-      init();
+        });
+  };
 
-      $http.get("/report/" + $scope.reportid)
-        .success(function(data){
+  $scope.searchreport = function () {
+    init();
+
+    $http.get('/report/' + $scope.reportid)
+        .success(function (data) {
           $scope.data.reports = data;
-          $location.path("/reports");
-        }).error(function(error){
+          $location.path('/reports');
+        }).error(function (error) {
           $scope.data.reports.error = error;
-        }).finally(function(){
+        }).finally(function () {
           $scope.reportid = null;
-      });
-  }
+        });
+  };
 });
 
