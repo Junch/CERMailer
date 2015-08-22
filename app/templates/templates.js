@@ -81,7 +81,7 @@ angular.module('myApp.templates', ['ngRoute', 'ngResource'])
         });
   }  else {
     $scope.title = 'Add New Template';
-    $scope.data.template = null;
+    delete $scope.data.template;
   }
 
   $scope.$watch('data.template.content', function () {

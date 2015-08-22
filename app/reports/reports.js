@@ -34,6 +34,12 @@ angular.module('myApp.reports', ['ngRoute', 'myApp.templates'])
           $scope.data.error = status;
         });
   }
+
+  $scope.$watch('data.selected', function () {
+    if ($scope.data.selected) {
+      $('#preview').html(marked($scope.data.selected.content));
+    }
+  });
 })
 
 .filter('checked', function () {

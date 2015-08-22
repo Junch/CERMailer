@@ -34,3 +34,14 @@
 <select class="form-control" ng-model="data.selected" ng-options="t.name for t in data.templates">
   <option value="">--Pick One--</option>
 </select>
+
+<div class="checkbox">
+  <label>
+    <input type="checkbox" ng-model="data.previewEnabled"> Preview
+  </label>
+</div>
+
+<div ng-show="data.selected && data.previewEnabled">
+  <div class="well" id="preview">
+  </div>
+</div>
