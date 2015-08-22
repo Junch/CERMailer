@@ -44,11 +44,7 @@ a[ng-click]{
 }
 
 /* Customize container */
-@media (min-width: 90em) {
-    .container{
-        max-width: 90em;
-        width: 90em;
-    }
+@media (min-width: 48em) {
     tbody th{
         width: 50%;
     }

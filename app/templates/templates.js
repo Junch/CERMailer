@@ -85,7 +85,7 @@ angular.module('myApp.templates', ['ngRoute', 'ngResource'])
   }
 
   $scope.$watch('data.template.content', function () {
-    $("#preview").html(marked($scope.data.template.content));
+    $('#preview').html(marked($scope.data.template.content));
   });
 
   $scope.save = function () {
