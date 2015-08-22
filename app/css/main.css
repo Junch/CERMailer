@@ -24,3 +24,32 @@
 .glyphicon-trash {
   margin-left: 12px;
 }
+
+.glyphicon-plus-sign,
+.glyphicon-minus-sign {
+  margin-right: 4px;
+}
+
+tr .template-details{
+    display: none;
+}
+
+tr .showdetails .template-details{
+    display: block;
+    font-weight: normal;
+}
+
+a[ng-click]{
+    cursor: pointer;
+}
+
+/* Customize container */
+@media (min-width: 90em) {
+    .container{
+        max-width: 90em;
+        width: 90em;
+    }
+    tbody th{
+        width: 50%;
+    }
+}

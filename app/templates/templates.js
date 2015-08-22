@@ -53,6 +53,16 @@ angular.module('myApp.templates', ['ngRoute', 'ngResource'])
       }
     }
   };
+
+  $scope.preview = function (e, index) {
+    if ($scope.index == index) {
+      delete $scope.index;
+    } else {
+      $scope.index = index;
+      $('#template-' + index + ' .template-details').html(marked($scope.data.templates[index].content));
+    }
+    e.preventDefault();
+  };
 })
 
 .controller('TemplateCtrl', function ($scope, $routeParams, $location, templateFactory) {
@@ -75,8 +85,7 @@ angular.module('myApp.templates', ['ngRoute', 'ngResource'])
   }
 
   $scope.$watch('data.template.content', function () {
-    document.getElementById('preview').innerHTML =
-        marked($scope.data.template.content);
+    $("#preview").html(marked($scope.data.template.content));
   });
 
   $scope.save = function () {

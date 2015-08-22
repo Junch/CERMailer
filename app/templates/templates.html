@@ -13,7 +13,13 @@
   </thead>
   <tbody>
     <tr ng-repeat="tmpl in data.templates">
-      <td>{{tmpl.name}}</td>
+      <th scope="row" ng-class="{showdetails:index==$index}" id="template-{{$index}}">
+        <a ng-click="preview($event, $index)">
+          <span class="glyphicon glyphicon-{{ index==$index ? 'minus' : 'plus' }}-sign"></span>{{tmpl.name}}
+        </a>
+        <div class="template-details well">
+        </div>
+      </th>
       <td><a href="mailto:{{tmpl.email}}">{{tmpl.author}}</a></td>
       <td>{{tmpl.note}}</td>
       <td>
